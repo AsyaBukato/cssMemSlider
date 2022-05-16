@@ -1,0 +1,153 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; 
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../cssMemSlider/assets/background.png');
+  background-repeat: repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50em;
+  margin: 1.875em auto;
+}
+
+.slider {
+  display: flex;
+  height: 31.25em;
+  width: 31.25em;
+/* тень слайдов */
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5); 
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.slides {
+  display: flex;
+  height: inherit;
+  opacity: 0;
+  position: absolute;
+  width: inherit;
+  -webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  -moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  -o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+.slide1 { background-image: url(../cssMemSlider/assets/cherries.jpg); }
+.slide2 { background-image: url(../cssMemSlider/assets/family.jpg); }
+.slide3 { background-image: url(../cssMemSlider/assets/laugh.jpg); }
+.slide4 { background-image: url(../cssMemSlider/assets/sense.jpg); }
+.slide5 { background-image: url(../cssMemSlider/assets/waterdisco.jpg); }
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5 {
+  opacity: 1;
+  z-index: 1;
+}
+
+.images > input {
+  display: none;
+}
+
+.images .controls {
+  display: flex;
+  width: 9em;
+  cursor: pointer;
+  justify-content: space-between;
+
+}
+
+.controls_wrapper {
+	width: 1.5625em;
+	height: 2em;
+}
+
+.images label {
+  cursor: pointer;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: background ease-in-out .5s;
+  -moz-transition: background ease-in-out .5s;
+  -o-transition: background ease-in-out .5s;
+  transition: background ease-in-out .5s;
+  background: #c7c7c7;
+  border: 0.2rem solid #727272;
+}
+
+.images label:hover, 
+#slide1:checked ~ .text_buttons .controls label:nth-of-type(1),
+#slide2:checked ~ .text_buttons .controls label:nth-of-type(2),
+#slide3:checked ~ .text_buttons .controls label:nth-of-type(3),
+#slide4:checked ~ .text_buttons .controls label:nth-of-type(4),
+#slide5:checked ~ .text_buttons .controls label:nth-of-type(5) {
+  background: #363636;
+}
+
+.text_buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 5em;
+	padding: 0 1em;
+	margin-top: 3em;
+}
+
+.textfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 31em;
+}
+
+.text {
+  width: inherit;
+  opacity: 0;
+
+  position: absolute;
+  font-family: 'Hachi Maru Pop', cursive;
+  font-size: 1.9em;
+  -webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  -moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  -o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+  transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+#slide1:checked ~ .text_buttons > .textfield > .text1,
+#slide2:checked ~ .text_buttons > .textfield > .text2,
+#slide3:checked ~ .text_buttons > .textfield > .text3,
+#slide4:checked ~ .text_buttons > .textfield > .text4,
+#slide5:checked ~ .text_buttons > .textfield > .text5 {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+	.text_buttons {
+		flex-direction: column-reverse
+	}
+
+	.text {
+		text-align: center;
+	}
+}
